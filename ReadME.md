@@ -35,7 +35,7 @@ sudo apt install -y python3-tk
 bash
 Copy
 Edit
-git clone https://github.com/tu_usuario/carro_tkinter.git
+git clone https://github.com/AndresReal567/carro_tkinter.git
 cd carro_tkinter
 python3 main.py
 🐳 Ejecución con Docker
