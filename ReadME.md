@@ -1,4 +1,7 @@
 🚗 Carro Seguidor de Línea con PID — Proyecto Docker + Tkinter
+
+
+
 Este proyecto implementa un carro virtual que sigue una pista curva utilizando Python y Tkinter como interfaz gráfica. Un controlador PID (Proporcional–Integral–Derivativo) permite al vehículo corregir su trayectoria automáticamente. La aplicación puede ejecutarse tanto de forma local como dentro de un contenedor Docker.
 Desarrollado como parte de la Tarea 5 del curso de Sistemas Operativos.
 
@@ -35,7 +38,7 @@ sudo apt install -y python3-tk
 bash
 Copy
 Edit
-git clone https://github.com/AndresReal567/carro_tkinter.git
+git clone https://github.com/tu_usuario/carro_tkinter.git
 cd carro_tkinter
 python3 main.py
 🐳 Ejecución con Docker
@@ -57,12 +60,12 @@ docker run -it \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   carro_tkinter
+
+
 ⚙️ Características Técnicas
 Pista compuesta por tres arcos circulares de 360°, con un ancho de 60 px.
-
 Sensor central frontal simula la detección de línea.
-
 El carro inicia en el primer loop y sigue automáticamente la trayectoria negra.
-
 Interfaz gráfica portable, compatible con Linux y Docker.
+
 
