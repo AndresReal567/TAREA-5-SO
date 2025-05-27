@@ -1,58 +1,68 @@
-# 🚗 Carro Seguidor de Línea con PID — Proyecto Docker + Tkinter
+🚗 Carro Seguidor de Línea con PID — Proyecto Docker + Tkinter
+Este proyecto implementa un carro virtual que sigue una pista curva utilizando Python y Tkinter como interfaz gráfica. Un controlador PID (Proporcional–Integral–Derivativo) permite al vehículo corregir su trayectoria automáticamente. La aplicación puede ejecutarse tanto de forma local como dentro de un contenedor Docker.
+Desarrollado como parte de la Tarea 5 del curso de Sistemas Operativos.
 
-Este proyecto implementa un **carro virtual que sigue una pista curva** utilizando Python con **Tkinter** como interfaz gráfica y un controlador **PID** para corregir el rumbo. Está preparado para ejecutarse localmente o dentro de un contenedor **Docker**, y fue desarrollado como parte del proyecto de sistemas operativos (Tarea 5).
+📁 Estructura del Proyecto
+bash
+Copy
+Edit
+carro_tkinter/
+├── main.py        # Código principal del simulador del carro
+├── Dockerfile     # Configuración para entorno Docker
+└── README.md      # Instrucciones y documentación
+🧠 Descripción General
+Interfaz gráfica creada con Tkinter.
 
----
+Controlador PID implementado desde cero.
 
-## 📂 Estructura del Proyecto
+Pista con tres curvas circulares completas (loops).
 
-carro_tkinter/ ├── main.py # Código Python del carro seguidor ├── Dockerfile # Configuración del contenedor Docker └── README.md # Instrucciones de uso y documentación
+El vehículo ajusta automáticamente su dirección para mantenerse sobre la línea negra.
 
+Preparado para ejecutarse en sistemas Linux o en contenedores Docker.
 
----
+🧪 Requisitos para Ejecución Local
+Python 3.7 o superior
 
-## 🧠 Descripción General
+Tkinter (en Ubuntu se instala con):
 
-- Interfaz gráfica generada con **Tkinter**.
-- Algoritmo de control basado en **PID (Proporcional–Integral–Derivativo)**.
-- Pista compuesta por **tres curvas circulares** (loops).
-- El vehículo ajusta su dirección de forma automática para mantenerse sobre la línea negra.
-- Totalmente portable mediante Docker.
-
----
-
-## 🧪 Requisitos Locales
-
-- Python 3.7 o superior
-- Tkinter (en Ubuntu puedes instalarlo con):
-
-```bash
+bash
+Copy
+Edit
 sudo apt update
 sudo apt install -y python3-tk
- 
- Ejecución Local
- git clone https://github.com/tu_usuario/carro_tkinter.git
+▶️ Ejecución Local
+bash
+Copy
+Edit
+git clone https://github.com/tu_usuario/carro_tkinter.git
 cd carro_tkinter
 python3 main.py
-
-Ejecución con Docker
+🐳 Ejecución con Docker
+1. Construir la imagen
+bash
+Copy
+Edit
 docker build -t carro_tkinter .
+2. Conceder permisos a Docker para usar el servidor gráfico
+bash
+Copy
+Edit
 xhost +local:docker
-
+3. Ejecutar el contenedor
+bash
+Copy
+Edit
 docker run -it \
   -e DISPLAY=$DISPLAY \
   -v /tmp/.X11-unix:/tmp/.X11-unix \
   carro_tkinter
+⚙️ Características Técnicas
+Pista compuesta por tres arcos circulares de 360°, con un ancho de 60 px.
 
-Características Técnicas
-Pista formada por tres arcos (360°) con un ancho de 60 px.
+Sensor central frontal simula la detección de línea.
 
-Sensor frontal central detecta superposición con la pista.
+El carro inicia en el primer loop y sigue automáticamente la trayectoria negra.
 
-El carro inicia en el primer loop, se desplaza automáticamente y sigue la trayectoria negra.
+Interfaz gráfica portable, compatible con Linux y Docker.
 
-Interfaz completamente portable con Docker y compatible con Linux.
-
-Autor
-Andrés Felipe Rojas Caro
-Universidad / Curso: Sistemas Operativos
